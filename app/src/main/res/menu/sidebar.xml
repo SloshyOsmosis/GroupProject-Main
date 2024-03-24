@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item android:title="Home"
+            android:id="@+id/homepage">
+        </item>
+        <item android:title="Basket"
+            android:id="@+id/basketPage">
+        </item>
+        <item android:title="Payment Plan"
+            android:id="@+id/paymentPlanPage">
+        </item>
+        <item android:title="Account"
+            android:id="@+id/accountPage">
+        </item>
+        <item android:title="Settings"
+            android:id="@+id/settingsPage">
+        </item>
+    </group>
+</menu>

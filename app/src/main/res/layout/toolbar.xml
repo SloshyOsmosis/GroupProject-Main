@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:padding="10dp"
+        android:layout_height="wrap_content">
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_centerVertical="true"
+            android:id="@+id/menu_icon"
+            android:layout_height="wrap_content"
+            android:src="@drawable/baseline_menu_24"
+            android:background="@drawable/roundstyle"
+            android:backgroundTint="@color/MainBlueColor"
+            android:padding="5dp"
+            android:contentDescription="Menu"
+            tools:ignore="HardcodedText">
+        </ImageButton>
+
+        <TextView
+            android:id="@+id/logo_icon"
+            android:layout_width="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/regular_font"
+            android:text="InkView"
+            android:textColor="@color/MainBlueColor"
+            android:textSize="36dp"
+            tools:ignore="HardcodedText,SpUsage" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/basket_icon"
+            android:src="@drawable/baseline_shopping_basket_24"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:backgroundTint="#0000"
+            android:contentDescription="Basket"
+            tools:ignore="HardcodedText">
+        </ImageButton>
+        
+    </RelativeLayout>
+
+</RelativeLayout>
