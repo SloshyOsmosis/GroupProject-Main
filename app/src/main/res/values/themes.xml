@@ -6,4 +6,17 @@
     </style>
 
     <style name="Theme.MyApplication" parent="Base.Theme.MyApplication" />
+    <style name="NavigationViewPadding">
+        <item name="listPreferredItemPaddingLeft">50dp</item>
+    </style>
+    <style name="NavigationTheme">
+        <item name="android:textSize">20sp</item>
+        <item name="fontFamily">@font/regular_font</item>
+        <item name="android:layout_marginBottom">20dp</item>
+    </style>
+    <style name="roundimageview">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>-----+-
+        <item name="color">@color/white</item>
+    </style>
 </resources>
