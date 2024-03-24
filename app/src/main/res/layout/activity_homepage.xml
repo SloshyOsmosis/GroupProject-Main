@@ -160,7 +160,7 @@
             android:layout_height="wrap_content"
             android:backgroundTint="@color/MainBlueColor"
             android:fontFamily="@font/regular_font"
-            android:text="You are currently on the Premium Plan\n Change plan?"
+            android:text="You are currently on the Free Plan\n Change plan?"
             android:textSize="16sp"
             app:layout_constraintBottom_toTopOf="@+id/cardrecyclerView"
             app:layout_constraintEnd_toEndOf="parent"

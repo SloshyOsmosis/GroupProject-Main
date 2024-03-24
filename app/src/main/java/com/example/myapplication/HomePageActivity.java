@@ -87,6 +87,7 @@ public class HomePageActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 int id = item.getItemId();
 
+                //Switch statement will be used here to change activities.
 
                 drawerLayout.closeDrawer(GravityCompat.START);
                 return true;
@@ -94,6 +95,7 @@ public class HomePageActivity extends AppCompatActivity {
         });
     }
 
+    //This method is called when a filter button is pressed based on the specified category.
     private void filterCards(String category){
         filteredCards.clear();
         for (Cards card : cards){
