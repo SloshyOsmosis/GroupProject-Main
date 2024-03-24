@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -32,8 +33,10 @@ public class HomePageActivity extends AppCompatActivity {
     ImageView profile;
 
     List<Cards> cards;
+    List<Cards> filteredCards;
 
     RecyclerView cardRecyclerView;
+    MyAdapter myAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,20 +54,20 @@ public class HomePageActivity extends AppCompatActivity {
         logo = findViewById(R.id.logo_icon);
 
         cards = new ArrayList<Cards>();
-        cards.add(new Cards(R.drawable.anniversary));
-        cards.add(new Cards(R.drawable.birthday1));
-        cards.add(new Cards(R.drawable.birthday2));
-        cards.add(new Cards(R.drawable.christmas1));
-        cards.add(new Cards(R.drawable.christmas2));
-        cards.add(new Cards(R.drawable.getwell1));
-        cards.add(new Cards(R.drawable.getwell2));
-        cards.add(new Cards(R.drawable.retirement));
-        cards.add(new Cards(R.drawable.valentine1));
-        cards.add(new Cards(R.drawable.valentine2));
+        //Setting cards and categories.
+        cards.add(new Cards(R.drawable.anniversary, "Anniversary"));cards.add(new Cards(R.drawable.birthday1, "Birthday"));
+        cards.add(new Cards(R.drawable.birthday2, "Birthday"));cards.add(new Cards(R.drawable.christmas1, "Christmas"));
+        cards.add(new Cards(R.drawable.christmas2, "Christmas"));cards.add(new Cards(R.drawable.retirement, "Anniversary"));
+        cards.add(new Cards(R.drawable.getwell1, "Get well"));cards.add(new Cards(R.drawable.getwell2, "Get well"));
+        cards.add(new Cards(R.drawable.valentine1, "Valentine"));cards.add(new Cards(R.drawable.valentine2, "Valentine"));
 
+        filteredCards = new ArrayList<>(cards);
 
-        cardRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        cardRecyclerView.setAdapter(new MyAdapter(getApplicationContext(),cards));;
+        myAdapter = new MyAdapter(getApplicationContext(), filteredCards);
+
+        GridLayoutManager layoutManager = new GridLayoutManager(this,2);
+        cardRecyclerView.setLayoutManager(layoutManager);
+        cardRecyclerView.setAdapter(myAdapter);
         basketButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -89,5 +92,36 @@ public class HomePageActivity extends AppCompatActivity {
                 return true;
             }
         });
+    }
+
+    private void filterCards(String category){
+        filteredCards.clear();
+        for (Cards card : cards){
+            if(card.getCategory().equals(category)){
+                filteredCards.add(card);
+            }
+        }
+        myAdapter.filterList(filteredCards);
+    }
+
+    //Filters the cards based on which button is pressed and which category each card is assigned to.
+    public void filterBirthdayTapped(View view) {
+        filterCards("Birthday");
+    }
+
+    public void filterWellSoonTapped(View view) {
+        filterCards("Get well");
+    }
+
+    public void filterChristmasTapped(View view) {
+        filterCards("Christmas");
+    }
+
+    public void filterAnniversaryTapped(View view) {
+        filterCards("Anniversary");
+    }
+
+    public void filterValentinesTapped(View view) {
+        filterCards("Valentine");
     }
 }

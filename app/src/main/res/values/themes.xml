@@ -19,4 +19,7 @@
         <item name="cornerSize">50%</item>-----+-
         <item name="color">@color/white</item>
     </style>
+    <style name="roundbuttonview">
+        <item name="cornerSize">25%</item>
+    </style>
 </resources>

@@ -9,14 +9,17 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<ViewHolder> {
     Context context;
     List<Cards> cards;
+    List<Cards> filteredCards;
     public MyAdapter(Context context, List<Cards> cards){
         this.context = context;
         this.cards = cards;
+        this.filteredCards = new ArrayList<>(cards);
     }
     @NonNull
     @Override
@@ -25,10 +28,16 @@ public class MyAdapter extends RecyclerView.Adapter<ViewHolder> {
     }
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.imageView.setImageResource(cards.get(position).getImage());
+        holder.imageView.setImageResource(filteredCards.get(position).getImage());
     }
     @Override
     public int getItemCount() {
-        return cards.size();
+        return filteredCards.size();
+    }
+
+    public void filterList(List<Cards> filteredList){
+        filteredCards.clear();
+        filteredCards.addAll(filteredList);
+        notifyDataSetChanged();
     }
 }

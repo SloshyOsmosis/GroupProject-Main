@@ -24,29 +24,149 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/cardrecyclerView"
-            android:layout_width="408dp"
-            android:layout_height="514dp"
+
+        <HorizontalScrollView
+            android:id="@+id/horizontalScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintVertical_bias="0.037">
 
-        <LinearLayout
-            android:layout_width="412dp"
-            android:layout_height="150dp"
-            android:background="@color/MainBlueColor"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toTopOf="@+id/cardrecyclerView"
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="88dp"
+                android:background="@color/MainBlueColor"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/filtergetwellsoon"
+                    android:layout_width="180dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:backgroundTint="@color/white"
+                    android:drawableTop="@drawable/getwellsplash"
+                    android:fontFamily="@font/regular_font"
+                    android:onClick="filterWellSoonTapped"
+                    android:text="Get Well Soon"
+                    android:textColor="@color/black"
+                    android:textSize="21sp"
+                    app:cornerRadius="40dp"
+                    tools:ignore="HardcodedText" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/filterchristmas"
+                    android:layout_width="180dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:backgroundTint="@color/white"
+                    android:drawableTop="@drawable/christmassplash"
+                    android:fontFamily="@font/regular_font"
+                    android:onClick="filterChristmasTapped"
+                    android:text="Christmas Cards"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    app:cornerRadius="40dp"
+                    tools:ignore="HardcodedText" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/filterbirthday"
+                    android:layout_width="180dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:backgroundTint="@color/white"
+                    android:drawableTop="@drawable/birthdaysplash"
+                    android:fontFamily="@font/regular_font"
+                    android:onClick="filterBirthdayTapped"
+                    android:text="Birthday"
+                    android:textColor="@color/black"
+                    android:textSize="21sp"
+                    app:cornerRadius="40dp"
+                    tools:ignore="HardcodedText" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/filteranniversary"
+                    android:layout_width="180dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:backgroundTint="@color/white"
+                    android:drawableTop="@drawable/anniversarysplash"
+                    android:fontFamily="@font/regular_font"
+                    android:onClick="filterAnniversaryTapped"
+                    android:text="Anniversary"
+                    android:textColor="@color/black"
+                    android:textSize="21sp"
+                    app:cornerRadius="40dp"
+                    tools:ignore="HardcodedText" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/filtervalentines"
+                    android:layout_width="180dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:backgroundTint="@color/white"
+                    android:drawableTop="@drawable/valentinessplash"
+                    android:fontFamily="@font/regular_font"
+                    android:onClick="filterValentinesTapped"
+                    android:text="Valentines"
+                    android:textColor="@color/black"
+                    android:textSize="21sp"
+                    app:cornerRadius="40dp"
+                    tools:ignore="HardcodedText" />
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/regular_font"
+            android:text="All Cards"
+            android:textSize="36sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView"
+            tools:ignore="HardcodedText" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/cardrecyclerView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0"></LinearLayout>
+            app:layout_constraintTop_toBottomOf="@+id/textView"
+            app:layout_constraintVertical_bias="0.391" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/paymentButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/MainBlueColor"
+            android:fontFamily="@font/regular_font"
+            android:text="You are currently on the Premium Plan\n Change plan?"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/cardrecyclerView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView"
+            app:layout_constraintVertical_bias="1.0" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.drawerlayout.widget.DrawerLayout>
