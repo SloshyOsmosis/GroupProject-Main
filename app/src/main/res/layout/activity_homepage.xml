@@ -159,6 +159,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/MainBlueColor"
+            app:cornerRadius="10dp"
             android:fontFamily="@font/regular_font"
             android:text="You are currently on the Free Plan\n Change plan?"
             android:textSize="16sp"
