@@ -18,7 +18,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final String TABLE_USERS = "users";
     private static final String COLUMN_ID = "_id";
-    private static final String COLUMN_USERNAME = "username";
+    private static final String COLUMN_EMAIL = "email";
     private static final String COLUMN_USER_PASSWORD = "password";
     private static final String COLUMN_MOBILE = "mobile";
 
@@ -31,7 +31,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase MyDatabase) {
         String CreateUserTable = "CREATE TABLE " + TABLE_USERS +
                 " (" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                COLUMN_USERNAME + COLUMN_MOBILE +
+                COLUMN_EMAIL + COLUMN_MOBILE +
                 COLUMN_USER_PASSWORD + " TEXT)";
 
         MyDatabase.execSQL(CreateUserTable);
@@ -42,24 +42,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         MyDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_USERS);
 
     }
-    public boolean insertData(String username, String password){
+    public boolean insertData(String email, String password){
         SQLiteDatabase myDB = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(COLUMN_USERNAME, username);
+        contentValues.put(COLUMN_EMAIL, email);
         contentValues.put(COLUMN_USER_PASSWORD, password);
         long result = myDB.insert(TABLE_USERS, null, contentValues);
         return result != -1;
     }
-    public boolean checkEmail(String username){
+    public boolean checkEmail(String email){
         SQLiteDatabase myDB = this.getWritableDatabase();
-        Cursor cursor = myDB.rawQuery("select * from " + TABLE_USERS + " where username=?", new String[]{username});
+        Cursor cursor = myDB.rawQuery("select * from " + TABLE_USERS + " where email=?", new String[]{email});
         boolean exists = cursor.getCount() > 0;
         cursor.close();
         return exists;
     }
-    public boolean checkUser(String username, String password){
+    public boolean checkUser(String email, String password){
         SQLiteDatabase myDB = this.getWritableDatabase();
-        Cursor cursor = myDB.rawQuery("select * from " + TABLE_USERS +  " where username=? and password=?", new String[]{username,password});
+        Cursor cursor = myDB.rawQuery("select * from " + TABLE_USERS +  " where email=? and password=?", new String[]{email,password});
         boolean exists = cursor.getCount() > 0;
         cursor.close();
         return exists;
