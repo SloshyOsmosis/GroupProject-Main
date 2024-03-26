@@ -24,16 +24,19 @@
                 android:layout_width="350dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="30dp"
+                android:textColor="@color/black"
                 android:background="@drawable/textboxforlogin"
                 android:drawableLeft="@drawable/baseline_mail_24"
                 android:drawablePadding="8dp"
                 android:hint="Email"
                 android:padding="8dp" />
 
-            <EditText
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txt_password"
                 android:layout_width="350dp"
                 android:layout_height="50dp"
+                android:textColor="@color/black"
+                android:inputType="textPassword"
                 android:layout_marginTop="30dp"
                 android:background="@drawable/textboxforlogin"
                 android:drawableLeft="@drawable/lock_alt_svgrepo_com"
@@ -41,10 +44,12 @@
                 android:hint="Password"
                 android:padding="8dp" />
 
-            <EditText
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txt_retypepassword"
                 android:layout_width="350dp"
                 android:layout_height="50dp"
+                android:textColor="@color/black"
+                android:inputType="textPassword"
                 android:layout_marginTop="30dp"
                 android:background="@drawable/textboxforlogin"
                 android:drawableLeft="@drawable/password_svgrepo_com"
