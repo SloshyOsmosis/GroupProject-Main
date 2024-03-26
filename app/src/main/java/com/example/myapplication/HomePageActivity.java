@@ -7,6 +7,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import com.example.myapplication.SubscribedClickListener;
+
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,6 +16,7 @@ import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -24,13 +27,14 @@ import com.google.android.material.navigation.NavigationView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HomePageActivity extends AppCompatActivity {
+public class HomePageActivity extends AppCompatActivity implements SubscribedClickListener {
 
     ImageButton basketButton, sidemenuButton;
     TextView logo;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     ImageView profile;
+    Button paymentplan;
 
     List<Cards> cards;
     List<Cards> filteredCards;
@@ -51,6 +55,8 @@ public class HomePageActivity extends AppCompatActivity {
 
         cardRecyclerView = findViewById(R.id.cardrecyclerView);
 
+        paymentplan = findViewById(R.id.paymentButton);
+
         logo = findViewById(R.id.logo_icon);
 
         cards = new ArrayList<Cards>();
@@ -68,6 +74,15 @@ public class HomePageActivity extends AppCompatActivity {
         GridLayoutManager layoutManager = new GridLayoutManager(this,2);
         cardRecyclerView.setLayoutManager(layoutManager);
         cardRecyclerView.setAdapter(myAdapter);
+
+        paymentplan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PaymentPlanFragment paymentPlanFragment = new PaymentPlanFragment();
+
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.homelayout, paymentPlanFragment).addToBackStack(null).commit() ;           }
+        });
         basketButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -126,4 +141,9 @@ public class HomePageActivity extends AppCompatActivity {
     public void filterValentinesTapped(View view) {
         filterCards("Valentine");
     }
+
+    public void subscribedUser(String buttonText) {
+        paymentplan.setText(buttonText);
+    }
+
 }
