@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 import android.content.ClipData;
 import android.content.Context;
+import android.content.Intent;
 import android.media.RouteListingPreference;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +17,7 @@ import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     Context context;
+    List<Cards> cards;
     List<Cards> filteredCards;
 
     public MyAdapter(Context context, List<Cards> cards) {
@@ -46,7 +48,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         notifyDataSetChanged();
     }
 
-    // ViewHolder class
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         ImageView imageView;
 
@@ -60,10 +61,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         public void onClick(View v) {
             int position = getAdapterPosition();
             if (position != RecyclerView.NO_POSITION) {
-                // Handle click event here
-                Cards clickedCard = filteredCards.get(position);
-                // You can perform actions such as starting a new activity here
-            }
-        }
+                int imageResourceId = cards.get(position).getImage();
+                Intent intent = new Intent(context, PersonaliseCard.class);
+                intent.putExtra("imageResouceId", imageResourceId);
+            }}
     }
 }

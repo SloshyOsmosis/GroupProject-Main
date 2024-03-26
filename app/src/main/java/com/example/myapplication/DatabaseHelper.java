@@ -31,7 +31,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase MyDatabase) {
         String CreateUserTable = "CREATE TABLE " + TABLE_USERS +
                 " (" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                COLUMN_EMAIL + COLUMN_MOBILE +
+                COLUMN_EMAIL + " TEXT, " +
+                COLUMN_MOBILE + " TEXT, " +
                 COLUMN_USER_PASSWORD + " TEXT)";
 
         MyDatabase.execSQL(CreateUserTable);
