@@ -35,31 +35,22 @@ public class SignupActivity extends AppCompatActivity {
                 }else {
                     if (password.equals(confirmpass)){
                         Boolean checkUserEmail = databaseHelper.checkEmail(email);
-
                         if (checkUserEmail == false){
                             Boolean insert = databaseHelper.insertData(email,password);
-
                             if (insert==true){
                                 Toast.makeText(SignupActivity.this,"Signup Successfull",Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
+                                Intent intent = new Intent(SignupActivity.this,LoginActivity.class);
                                 startActivity(intent);
                             } else {
                                 Toast.makeText(SignupActivity.this,"Signup Failed",Toast.LENGTH_SHORT).show();
-
                             }
-
-
-
                         }
                         else {
                             Toast.makeText(SignupActivity.this,"User Already Exists,Please login",Toast.LENGTH_SHORT).show();
-
                         }
-
                     }else {
                         Toast.makeText(SignupActivity.this,"Invalid Password",Toast.LENGTH_SHORT).show();
                     }
-
                 }
             }
         });

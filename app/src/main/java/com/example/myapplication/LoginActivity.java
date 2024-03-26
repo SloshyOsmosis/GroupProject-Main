@@ -32,13 +32,13 @@ public class LoginActivity extends AppCompatActivity {
                 if(email.equals("")|| password.equals("")){
                     Toast.makeText(LoginActivity.this,"All fields are mandatory",Toast.LENGTH_SHORT).show();
                 }else {
-                    Boolean checkCredential = databaseHelper.checkEmailPassword(email,password);
+                    Boolean checkCredential = databaseHelper.checkUser(email,password);
 
 
                     if(checkCredential == true){
 
                         Toast.makeText(LoginActivity.this,"Login Successful",Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(getApplicationContext(),HomePageActivity.class);
+                        Intent intent = new Intent(LoginActivity.this, HomePageActivity.class);
                         startActivity(intent);
                     }else {
                         Toast.makeText(LoginActivity.this,"Invalid Credential",Toast.LENGTH_SHORT).show();

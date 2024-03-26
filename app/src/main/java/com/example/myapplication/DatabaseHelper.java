@@ -10,57 +10,54 @@ import androidx.annotation.Nullable;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
-    public static final String databaseName = "Signup_db";
+    private Context context;
+    private static final String DATABASE_NAME = "InkView.db";
+    private static final int DATABASE_VERSION = 1;
+    //User Table
+    private static final String TABLE_USERS = "users";
+    private static final String COLUMN_USERNAME = "username";
+    private static final String COLUMN_USER_PASSWORD = "password";
 
     public DatabaseHelper(@Nullable Context context) {
-        super(context, "Signup_db", null, 1);
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
+        this.context = context;
     }
 
     @Override
     public void onCreate(SQLiteDatabase MyDatabase) {
-        MyDatabase.execSQL("Create Table allusers(email TEXT primary key, password TEXT)");
+        String CreateUserTable = "CREATE TABLE " + TABLE_USERS +
+                " (" + COLUMN_USERNAME +
+                " TEXT PRIMARY KEY, " +
+                COLUMN_USER_PASSWORD + " TEXT)";
 
+        MyDatabase.execSQL(CreateUserTable);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase MyDatabase, int i, int i1) {
-        MyDatabase.execSQL("drop Table if exists allusers");
+        MyDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_USERS);
 
     }
-
-    public boolean insertData(String email,String Password){
-        SQLiteDatabase MyDatabase = this.getWritableDatabase();
+    public boolean insertData(String username, String password){
+        SQLiteDatabase myDB = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put("email",email);
-        contentValues.put("password",Password);
-        long result = MyDatabase.insert("allusers",null,contentValues);
-        if (result ==1){
-            return false;
-        }
-        else {
-            return true;
-        }
+        contentValues.put(COLUMN_USERNAME, username);
+        contentValues.put(COLUMN_USER_PASSWORD, password);
+        long result = myDB.insert(TABLE_USERS, null, contentValues);
+        return result != -1;
     }
-    public Boolean checkEmail(String email){
-        SQLiteDatabase MyDatabase = this.getWritableDatabase();
-        Cursor cursor = MyDatabase.rawQuery("Select * from allusers where email = ?",new String[]{email});
-
-        if (cursor.getCount()>0){
-            return true;
-        } else {
-            return false;
-        }
-
+    public boolean checkEmail(String username){
+        SQLiteDatabase myDB = this.getWritableDatabase();
+        Cursor cursor = myDB.rawQuery("select * from " + TABLE_USERS + " where username=?", new String[]{username});
+        boolean exists = cursor.getCount() > 0;
+        cursor.close();
+        return exists;
     }
-    public Boolean checkEmailPassword(String email,String password){
-        SQLiteDatabase MyDatabase = this.getWritableDatabase();
-        Cursor cursor = MyDatabase.rawQuery("Select * from allusers where email = ?",new String[]{email,password});
-
-        if (cursor.getCount()>0){
-            return true;
-        } else {
-            return false;
-        }
-
+    public boolean checkUser(String username, String password){
+        SQLiteDatabase myDB = this.getWritableDatabase();
+        Cursor cursor = myDB.rawQuery("select * from " + TABLE_USERS +  " where username=? and password=?", new String[]{username,password});
+        boolean exists = cursor.getCount() > 0;
+        cursor.close();
+        return exists;
     }
 }
