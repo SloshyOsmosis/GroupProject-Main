@@ -5,10 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
+    android:gravity="center"
     tools:context=".LoginActivity">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -18,57 +20,67 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="225dp"
+                android:layout_marginTop="50dp"
                 android:orientation="vertical"
                 android:padding="20dp">
+
+                <TextView
+                    android:id="@+id/txt_app_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="InkView"
+                    android:textColor="@color/MainBlueColor"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
+
 
                 <EditText
                     android:id="@+id/txt_email"
                     android:layout_width="350dp"
                     android:layout_height="50dp"
                     android:layout_marginTop="30dp"
-                    android:textColor="@color/black"
                     android:background="@drawable/textboxforlogin"
                     android:drawableLeft="@drawable/baseline_mail_24"
                     android:drawablePadding="8dp"
                     android:hint="Email"
-                    android:padding="8dp" />
+                    android:padding="8dp"
+                    android:textColor="@color/black" />
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/txt_password"
                     android:layout_width="350dp"
                     android:layout_height="50dp"
-                    android:layout_marginTop="30dp"
-                    android:inputType="textPassword"
-                    android:textColor="@color/black"
+                    android:layout_marginTop="20dp"
                     android:background="@drawable/textboxforlogin"
                     android:drawableLeft="@drawable/lock_alt_svgrepo_com"
                     android:drawablePadding="8dp"
                     android:hint="Password"
-                    android:padding="8dp" />
-
+                    android:inputType="textPassword"
+                    android:padding="8dp"
+                    android:textColor="@color/black" />
 
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/loginbtn"
                     android:layout_width="350dp"
                     android:layout_height="50dp"
-                    android:layout_marginTop="30dp"
+                    android:layout_marginTop="20dp"
                     android:background="@drawable/button"
                     android:text="Login"
                     android:textColor="@color/white"
                     android:textSize="18dp" />
+
                 <TextView
+                    android:id="@+id/txt_already"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/txt_already"
-                    android:text="Not a user? Signup"
                     android:layout_gravity="center"
+                    android:layout_marginTop="16dp"
                     android:padding="8dp"
-                    android:textSize="15sp"
-                    android:layout_marginTop="8dp"
-                    android:textColor="@color/black"/>
-
+                    android:text="Not a user? Signup"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
 
             </LinearLayout>
 
@@ -79,3 +91,4 @@
 
 
 </LinearLayout>
+
