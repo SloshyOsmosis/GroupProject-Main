@@ -14,9 +14,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "InkView.db";
     private static final int DATABASE_VERSION = 1;
     //User Table
+
+
     private static final String TABLE_USERS = "users";
+    private static final String COLUMN_ID = "_id";
     private static final String COLUMN_USERNAME = "username";
     private static final String COLUMN_USER_PASSWORD = "password";
+    private static final String COLUMN_MOBILE = "mobile";
 
     public DatabaseHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -26,8 +30,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase MyDatabase) {
         String CreateUserTable = "CREATE TABLE " + TABLE_USERS +
-                " (" + COLUMN_USERNAME +
-                " TEXT PRIMARY KEY, " +
+                " (" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                COLUMN_USERNAME + COLUMN_MOBILE +
                 COLUMN_USER_PASSWORD + " TEXT)";
 
         MyDatabase.execSQL(CreateUserTable);
