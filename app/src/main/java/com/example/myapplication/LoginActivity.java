@@ -13,7 +13,7 @@ import com.example.myapplication.databinding.ActivitySignupBinding;
 public class LoginActivity extends AppCompatActivity {
 
     ActivityLoginBinding binding;
-    com.example.teamproject.DatabaseHelper databaseHelper;
+    com.example.myapplication.DatabaseHelper databaseHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +21,7 @@ public class LoginActivity extends AppCompatActivity {
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        databaseHelper = new com.example.teamproject.DatabaseHelper(this);
+        databaseHelper = new com.example.myapplication.DatabaseHelper(this);
 
         binding.loginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
