@@ -15,7 +15,7 @@ public class PersonaliseCard extends AppCompatActivity {
 
         cardView = findViewById(R.id.imageView);
 
-        int imageResourceId = getIntent().getIntExtra("imageResourceId", 0);
-        cardView.setImageResource(imageResourceId);
+        int cardImage = getIntent().getIntExtra("imageResourceId", 0);
+        cardView.setImageResource(cardImage);
     }
 }

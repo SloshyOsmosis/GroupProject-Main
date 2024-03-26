@@ -59,9 +59,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         public void onClick(View v) {
             int position = getAdapterPosition();
             if (position != RecyclerView.NO_POSITION) {
-                int imageResourceId = filteredCards.get(position).getImage();
+                int cardImage = filteredCards.get(position).getImage();
                 Intent intent = new Intent(context, PersonaliseCard.class);
-                intent.putExtra("imageResourceId", imageResourceId);
+                intent.putExtra("imageResourceId", cardImage);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);
             }}
