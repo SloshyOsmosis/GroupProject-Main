@@ -1,9 +1,7 @@
 package com.example.myapplication;
 
-import android.content.ClipData;
 import android.content.Context;
 import android.content.Intent;
-import android.media.RouteListingPreference;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,7 +27,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(context).inflate(R.layout.card_view, parent, false);
-        return new ViewHolder(itemView);
+        return new ViewHolder(itemView, context);
     }
 
     @Override
@@ -51,7 +49,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         ImageView imageView;
 
-        public ViewHolder(@NonNull View itemView) {
+        public ViewHolder(@NonNull View itemView, Context context) {
             super(itemView);
             imageView = itemView.findViewById(R.id.cardView);
             itemView.setOnClickListener(this);
@@ -61,9 +59,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         public void onClick(View v) {
             int position = getAdapterPosition();
             if (position != RecyclerView.NO_POSITION) {
-                int imageResourceId = cards.get(position).getImage();
+                int imageResourceId = filteredCards.get(position).getImage();
                 Intent intent = new Intent(context, PersonaliseCard.class);
-                intent.putExtra("imageResouceId", imageResourceId);
+                intent.putExtra("imageResourceId", imageResourceId);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(intent);
             }}
     }
 }
