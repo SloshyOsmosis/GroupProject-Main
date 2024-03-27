@@ -35,6 +35,7 @@ android {
 
 dependencies {
 
+    implementation("com.github.gcacace:signature-pad:1.3.1")
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation("androidx.compose.ui:ui-text-google-fonts:1.6.4")
