@@ -25,7 +25,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         this.context = context;
     }
-
     @Override
     public void onCreate(SQLiteDatabase MyDatabase) {
         String CreateUserTable = "CREATE TABLE " + TABLE_USERS +
@@ -36,7 +35,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         MyDatabase.execSQL(CreateUserTable);
     }
-
     @Override
     public void onUpgrade(SQLiteDatabase MyDatabase, int i, int i1) {
         MyDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_USERS);
@@ -64,7 +62,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cursor.close();
         return exists;
     }
-
     public boolean checkEmailExists(String email) {
         SQLiteDatabase myDB = this.getReadableDatabase();
         Cursor cursor = myDB.rawQuery("SELECT * FROM " + TABLE_USERS + " WHERE " + COLUMN_EMAIL + "=?", new String[]{email});
@@ -72,5 +69,4 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cursor.close();
         return exists;
     }
-
 }

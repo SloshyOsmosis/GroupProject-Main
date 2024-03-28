@@ -28,4 +28,18 @@
         <item>0/3</item>
         <item>0/1</item>
     </string-array>
+    <string-array name="order_status">
+        <item>Pending Order</item>
+        <item>Sent</item>
+        <item>Sent</item>
+        <item>Sent</item>
+        <item>Sent</item>
+    </string-array>
+    <string-array name="deliverey_date">
+        <item>Delivery on 28/03/2024</item>
+        <item>Delivered on 15/03/2024</item>
+        <item>Delivered on 24/2/2024</item>
+        <item>Delivered on 20/2/2024</item>
+        <item>Delivered on 01/01/2024</item>
+    </string-array>
 </resources>

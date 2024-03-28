@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.myapplication.CalendarAdapter.OnItemListener;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -80,8 +81,11 @@ public class CalendarActivity extends AppCompatActivity implements CalendarAdapt
     @Override
     public void onItemClick(int position, String dayText) {
         if (!dayText.equals("")) {
-            String message = "Selected Date: " + dayText + " " + monthYearFromDate(selectedDate);
+            String message = "Delivery Date: " + dayText + " " + monthYearFromDate(selectedDate);
+            Intent intent = new Intent(CalendarActivity.this, BasketActivity.class);
             Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+            intent.putExtra("DeliveryDate",selectedDate.toString());
+            startActivity(intent);
         }
     }
 }
