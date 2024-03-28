@@ -1,13 +1,16 @@
 package com.example.myapplication;
 
+
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
-public class CollaboratorActivity extends AppCompatActivity {
+public class CollaboratorFragment1 extends Fragment {
 
     private EditText editTextEmailSender;
     private EditText editTextEmailSubject;
@@ -15,19 +18,20 @@ public class CollaboratorActivity extends AppCompatActivity {
     private EditText editTextCollaboratorEmail;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_collaborator);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_collaborator1, container, false);
 
         // Initialise all views
-        editTextEmailSender = findViewById(R.id.editTextEmailSender);
-        editTextEmailSubject = findViewById(R.id.editTextEmailSubject);
-        editTextCollaboratorName = findViewById(R.id.editTextCollaboratorName);
-        editTextCollaboratorEmail = findViewById(R.id.editTextCollaboratorEmail);
-        Button buttonInviteCollaborator = findViewById(R.id.buttonInviteCollaborator);
+        editTextEmailSender = view.findViewById(R.id.editTextEmailSender);
+        editTextEmailSubject = view.findViewById(R.id.editTextEmailSubject);
+        editTextCollaboratorName = view.findViewById(R.id.editTextCollaboratorName);
+        editTextCollaboratorEmail = view.findViewById(R.id.editTextCollaboratorEmail);
+        Button buttonInviteCollaborator = view.findViewById(R.id.buttonInviteCollaborator);
 
         // Set click listener for the invite button
         buttonInviteCollaborator.setOnClickListener(v -> inviteCollaborator());
+
+        return view;
     }
 
     private void inviteCollaborator() {
@@ -75,15 +79,12 @@ public class CollaboratorActivity extends AppCompatActivity {
             return;
         }
 
-
-
-
-        //  invitation email
+        // Invitation email
         String invitationMessage = "Hi " + collaboratorName + ",\n\nYou have been invited by " + emailSender + " to collaborate on a project.";
-        // implement the email sending logic later
+        // Implement the email sending logic later
 
         // Show a success message
-        Toast.makeText(this, "Invitation sent to " + collaboratorEmail, Toast.LENGTH_SHORT).show();
+        Toast.makeText(getContext(), "Invitation sent to " + collaboratorEmail, Toast.LENGTH_SHORT).show();
 
         // Clear input fields
         clearInputFields();
@@ -96,5 +97,4 @@ public class CollaboratorActivity extends AppCompatActivity {
         editTextCollaboratorName.setText("");
         editTextCollaboratorEmail.setText("");
     }
-
 }

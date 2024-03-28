@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="privacy_options">
+        <item>Public</item>
+        <item>Private</item>
+    </string-array>
+    <string-array name="account_options">
+        <item>Basic</item>
+        <item>Premium</item>
+    </string-array>
+    <string-array name="security_options">
+        <item>Low</item>
+        <item>Medium</item>
+        <item>High</item>
+    </string-array>
+    <string-array name="feedback_options">
+        <item>General</item>
+        <item>Bugs</item>
+        <item>Features</item>
+    </string-array>
+</resources>
