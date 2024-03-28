@@ -13,6 +13,7 @@ import com.example.myapplication.SubscribedClickListener;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -97,17 +98,33 @@ public class HomePageActivity extends AppCompatActivity implements SubscribedCli
                 drawerLayout.openDrawer(GravityCompat.START);
             }
         });
+
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 int id = item.getItemId();
 
-                //Switch statement will be used here to change activities.
+                // If-else statements to handle different menu items
+                if (id == R.id.settingsPage) {
+                    // Start the SettingsPageActivity
+                    startActivity(new Intent(HomePageActivity.this, SettingsPageActivity.class));
+                }
 
+                // handle others later
+
+               // else if (id == R.id.anotherMenuItem) {
+                    // Handle another menu item
+             //   } else {
+                    // Handle other menu items
+              //  }
+
+                // Close the drawer after handling the selection
                 drawerLayout.closeDrawer(GravityCompat.START);
                 return true;
             }
         });
+
+
     }
 
     //This method is called when a filter button is pressed based on the specified category.
@@ -120,6 +137,14 @@ public class HomePageActivity extends AppCompatActivity implements SubscribedCli
         }
         myAdapter.filterList(filteredCards);
     }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.sidebar, menu);
+        return true;
+    }
+
 
     //Filters the cards based on which button is pressed and which category each card is assigned to.
     public void filterBirthdayTapped(View view) {
