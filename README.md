@@ -40,6 +40,8 @@ Drag and drop APK to your emulator
 
 
 Contributors
+
+
 Daniel Herbert - Project Manager
 
 Aditya Solanki – UI/UX Designer
