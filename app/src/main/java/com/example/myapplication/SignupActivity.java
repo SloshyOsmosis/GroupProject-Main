@@ -64,11 +64,11 @@ public class SignupActivity extends AppCompatActivity {
         binding.txtAlreadylogin.setOnClickListener(v -> navigateToLoginPage());
     }
 
-    private boolean isValidEmail(CharSequence target) {
+    boolean isValidEmail(CharSequence target) {
         return (!TextUtils.isEmpty(target) && Patterns.EMAIL_ADDRESS.matcher(target).matches());
     }
 
-    private boolean isValidPassword(String password) {
+    boolean isValidPassword(String password) {
         return password.length() >= 6;
     }
 
