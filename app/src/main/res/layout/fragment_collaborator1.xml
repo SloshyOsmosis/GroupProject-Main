@@ -22,8 +22,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Invite Collaborator"
-            android:textSize="18sp"
-            android:layout_marginTop="60dp"
+            android:textSize="25dp"
+            android:layout_marginTop="90dp"
             android:textStyle="bold"
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="24dp"/>
@@ -104,7 +104,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:text="Invite Collaborator" />
+            android:text="Invite Collaborator"
+            android:background="@color/MainBlueColor" />
+
+
 
     </LinearLayout>
 
