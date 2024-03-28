@@ -86,7 +86,9 @@ public class PersonaliseCard extends AppCompatActivity {
         deliverybutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(PersonaliseCard.this, CalendarActivity.class);
+                startActivity(intent);
+                finish();
             }});
         inviteCollaboratorButton.setOnClickListener(new View.OnClickListener() {
             @Override
