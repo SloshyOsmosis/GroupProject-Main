@@ -1,13 +1,17 @@
 package com.example.myapplication;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,6 +41,37 @@ public class ProfileActivity extends AppCompatActivity {
 
         changeBtn = findViewById(R.id.changeInfoBtn);
         setUpAchievementModels();
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                int id = item.getItemId();
+                switch (id) {
+                    case R.id.navigation_homepage:
+                        Intent homeIntent = new Intent(ProfileActivity.this, HomePageActivity.class);
+                        startActivity(homeIntent);
+                        break;
+                    case R.id.navigation_basketPage:
+                        Intent basketIntent = new Intent(ProfileActivity.this, BasketActivity.class);
+                        startActivity(basketIntent);
+                        break;
+                    case R.id.navigation_paymentPlanPage:
+                        PaymentPlanFragment paymentPlanFragment = new PaymentPlanFragment();
+                        getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.homelayout, paymentPlanFragment).addToBackStack(null).commit() ;
+                        break;
+                    case R.id.navigation_accountPage:
+                        Intent accountIntent = new Intent(ProfileActivity.this, ProfileActivity.class);
+                        startActivity(accountIntent);
+                        break;
+                    case R.id.navigation_settingsPage:
+                        Intent settingsIntent = new Intent(ProfileActivity.this, SettingsPageActivity.class);
+                        startActivity(settingsIntent);
+                        break;
+                }
+                drawerLayout.closeDrawer(GravityCompat.START);
+                return true;
+            }
+        });
 
         achievementBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,7 +80,6 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
     }
-
     private void createPopUpWindow() {
         LayoutInflater inflater = (LayoutInflater) this.getSystemService(this.LAYOUT_INFLATER_SERVICE);
         View popUpView = inflater.inflate(R.layout.achievmentpopup, null);

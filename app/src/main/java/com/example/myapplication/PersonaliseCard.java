@@ -26,7 +26,7 @@ import com.google.android.material.navigation.NavigationView;
 public class PersonaliseCard extends AppCompatActivity {
     ImageButton sidemenuButton, uploadImageButton;
     ImageView cardView, uploadImage;
-    Button inviteCollaboratorButton, giftcardbutton;
+    Button inviteCollaboratorButton, giftcardbutton, deliverybutton;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     ActivityResultLauncher resultLauncher;
@@ -43,6 +43,7 @@ public class PersonaliseCard extends AppCompatActivity {
 
         sidemenuButton = findViewById(R.id.menu_icon);
         giftcardbutton = findViewById(R.id.giftcardButton);
+        deliverybutton = findViewById(R.id.btnDeliveryDate);
 
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.navigation_view);
@@ -51,6 +52,42 @@ public class PersonaliseCard extends AppCompatActivity {
         cardView.setImageResource(cardImage);
 
         registerResult();
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                int id = item.getItemId();
+                switch (id) {
+                    case R.id.navigation_homepage:
+                        Intent homeIntent = new Intent(PersonaliseCard.this, HomePageActivity.class);
+                        startActivity(homeIntent);
+                        break;
+                    case R.id.navigation_basketPage:
+                        Intent basketIntent = new Intent(PersonaliseCard.this, BasketActivity.class);
+                        startActivity(basketIntent);
+                        break;
+                    case R.id.navigation_paymentPlanPage:
+                        PaymentPlanFragment paymentPlanFragment = new PaymentPlanFragment();
+                        getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.homelayout, paymentPlanFragment).addToBackStack(null).commit() ;
+                        break;
+                    case R.id.navigation_accountPage:
+                        Intent accountIntent = new Intent(PersonaliseCard.this, ProfileActivity.class);
+                        startActivity(accountIntent);
+                        break;
+                    case R.id.navigation_settingsPage:
+                        Intent settingsIntent = new Intent(PersonaliseCard.this, SettingsPageActivity.class);
+                        startActivity(settingsIntent);
+                        break;
+                }
+                drawerLayout.closeDrawer(GravityCompat.START);
+                return true;
+            }
+        });
+        deliverybutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }});
         inviteCollaboratorButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -86,9 +123,7 @@ public class PersonaliseCard extends AppCompatActivity {
         });
 
         // to implement:
-
         //giftcardbutton.setOnClickListener(new View.OnClickListener() {
-
         //});
     }
     private void registerResult(){
