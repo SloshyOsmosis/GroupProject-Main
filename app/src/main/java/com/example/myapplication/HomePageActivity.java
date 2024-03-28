@@ -101,9 +101,29 @@ public class HomePageActivity extends AppCompatActivity implements SubscribedCli
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 int id = item.getItemId();
-
-                //Switch statement will be used here to change activities.
-
+                switch (id) {
+                    case R.id.navigation_homepage:
+                        Intent homeIntent = new Intent(HomePageActivity.this, HomePageActivity.class);
+                        startActivity(homeIntent);
+                        break;
+                    case R.id.navigation_basketPage:
+                        Intent basketIntent = new Intent(HomePageActivity.this, BasketActivity.class);
+                        startActivity(basketIntent);
+                        break;
+                    case R.id.navigation_paymentPlanPage:
+                        PaymentPlanFragment paymentPlanFragment = new PaymentPlanFragment();
+                        getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.homelayout, paymentPlanFragment).addToBackStack(null).commit() ;
+                        break;
+                    case R.id.navigation_accountPage:
+                        Intent accountIntent = new Intent(HomePageActivity.this, ProfileActivity.class);
+                        startActivity(accountIntent);
+                        break;
+                    case R.id.navigation_settingsPage:
+                        Intent settingsIntent = new Intent(HomePageActivity.this, SettingsPageActivity.class);
+                        startActivity(settingsIntent);
+                        break;
+                }
                 drawerLayout.closeDrawer(GravityCompat.START);
                 return true;
             }

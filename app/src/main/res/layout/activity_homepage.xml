@@ -9,19 +9,6 @@
     android:fitsSystemWindows="true"
     tools:context=".HomePageActivity">
     <include layout="@layout/toolbar"/>
-    <com.google.android.material.navigation.NavigationView
-        android:id="@+id/navigation_view"
-        android:layout_width="250dp"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:theme="@style/NavigationTheme"
-        app:itemTextAppearance="@font/regular_font"
-        app:itemTextColor="@color/white"
-        android:background="@color/MainBlueColor"
-        app:menu="@menu/sidebar"
-        app:headerLayout="@layout/header_sidebar">
-    </com.google.android.material.navigation.NavigationView>
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -170,4 +157,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigation_view"
+        android:layout_width="250dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:theme="@style/NavigationTheme"
+        app:itemTextAppearance="@font/regular_font"
+        app:itemTextColor="@color/white"
+        android:background="@color/MainBlueColor"
+        app:menu="@menu/sidebar"
+        app:headerLayout="@layout/header_sidebar">
+    </com.google.android.material.navigation.NavigationView>
 </androidx.drawerlayout.widget.DrawerLayout>

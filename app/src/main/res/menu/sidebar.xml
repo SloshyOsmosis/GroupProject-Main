@@ -2,19 +2,19 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="single">
         <item android:title="Home"
-            android:id="@+id/homepage">
+            android:id="@+id/navigation_homepage">
         </item>
         <item android:title="Basket"
-            android:id="@+id/basketPage">
+            android:id="@+id/navigation_basketPage">
         </item>
         <item android:title="Payment Plan"
-            android:id="@+id/paymentPlanPage">
+            android:id="@+id/navigation_paymentPlanPage">
         </item>
         <item android:title="Account"
-            android:id="@+id/accountPage">
+            android:id="@+id/navigation_accountPage">
         </item>
         <item android:title="Settings"
-            android:id="@+id/settingsPage">
+            android:id="@+id/navigation_settingsPage">
         </item>
     </group>
 </menu>
