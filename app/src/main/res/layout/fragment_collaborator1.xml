@@ -1,113 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:layout_height="match_parent">
 
-    <!-- Title "InkView" -->
-    <TextView
-        android:id="@+id/InkView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="InkView"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="24dp"/>
-
-    <!-- Invite Collaborator Title -->
-    <TextView
-        android:id="@+id/textViewInviteCollaborator"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Invite Collaborator"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="24dp"/>
-
-    <!-- Sender's Email -->
-    <com.google.android.material.textfield.TextInputLayout
+    <!-- Main content layout -->
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
 
-        <EditText
-            android:id="@+id/editTextEmailSender"
+        <!-- Title "InkView" -->
+        <TextView
+            android:id="@+id/InkView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="InkView"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="24dp"/>
+
+        <!-- Invite Collaborator Title -->
+        <TextView
+            android:id="@+id/textViewInviteCollaborator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Invite Collaborator"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="24dp"/>
+
+        <!-- Sender's Email -->
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Your Email Address"
-            android:inputType="textEmailAddress"/>
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp">
 
-    <!-- Email Subject -->
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp">
+            <EditText
+                android:id="@+id/editTextEmailSender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Your Email Address"
+                android:inputType="textEmailAddress"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
-            android:id="@+id/editTextEmailSubject"
+        <!-- Email Subject -->
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Email Subject"
-            android:inputType="text"/>
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp">
 
-    <!-- Collaborator's Name -->
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp">
+            <EditText
+                android:id="@+id/editTextEmailSubject"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Email Subject"
+                android:inputType="text"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
-            android:id="@+id/editTextCollaboratorName"
+        <!-- Collaborator's Name -->
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Collaborator's Name"
-            android:inputType="text"/>
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp">
 
-    <!-- Collaborator's Email -->
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp">
+            <EditText
+                android:id="@+id/editTextCollaboratorName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Collaborator's Name"
+                android:inputType="text"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
-            android:id="@+id/editTextCollaboratorEmail"
+        <!-- Collaborator's Email -->
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Collaborator's Email Address"
-            android:inputType="textEmailAddress"/>
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp">
 
-    <!-- Disclaimer -->
-    <TextView
-        android:id="@+id/textViewDisclaimer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Disclaimer: Please ensure the email address is correct before saving."
-        android:textSize="14sp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"/>
+            <EditText
+                android:id="@+id/editTextCollaboratorEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Collaborator's Email Address"
+                android:inputType="textEmailAddress"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-    <!-- Invite Button -->
-    <Button
-        android:id="@+id/buttonInviteCollaborator"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Invite Collaborator"
-        android:layout_marginTop="24dp"/>
+        <!-- Disclaimer -->
+        <TextView
+            android:id="@+id/textViewDisclaimer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Disclaimer: Please ensure the email address is correct before saving."
+            android:textSize="14sp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"/>
 
-    <!-- Fragment Container -->
-    <FrameLayout
-        android:id="@+id/fragment_collaborator"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-</LinearLayout>
+        <!-- Invite Button -->
+        <Button
+            android:id="@+id/buttonInviteCollaborator"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Invite Collaborator"
+            android:layout_marginTop="24dp"/>
+
+    </LinearLayout>
+</FrameLayout>

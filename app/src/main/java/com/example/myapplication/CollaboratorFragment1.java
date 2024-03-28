@@ -17,6 +17,11 @@ public class CollaboratorFragment1 extends Fragment {
     private EditText editTextCollaboratorName;
     private EditText editTextCollaboratorEmail;
 
+
+
+    // Required empty public constructor
+    public CollaboratorFragment1() {}
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_collaborator1, container, false);
