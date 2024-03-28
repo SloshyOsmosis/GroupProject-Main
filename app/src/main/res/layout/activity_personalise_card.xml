@@ -229,7 +229,7 @@
                 android:fontFamily="@font/regular_font"
                 android:text="Invite Collaborators"
                 android:textColor="@color/white"
-                android:textSize="18sp" />
+                android:textSize="22sp" />
 
             <Button
                 android:id="@+id/btnDeliveryDate"
