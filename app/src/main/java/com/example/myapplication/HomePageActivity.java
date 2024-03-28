@@ -61,11 +61,11 @@ public class HomePageActivity extends AppCompatActivity implements SubscribedCli
 
         cards = new ArrayList<Cards>();
         //Setting cards and categories.
-        cards.add(new Cards(R.drawable.anniversary, "Anniversary"));cards.add(new Cards(R.drawable.birthday1, "Birthday"));
-        cards.add(new Cards(R.drawable.birthday2, "Birthday"));cards.add(new Cards(R.drawable.christmas1, "Christmas"));
-        cards.add(new Cards(R.drawable.christmas2, "Christmas"));cards.add(new Cards(R.drawable.retirement, "Anniversary"));
-        cards.add(new Cards(R.drawable.getwell1, "Get well"));cards.add(new Cards(R.drawable.getwell2, "Get well"));
-        cards.add(new Cards(R.drawable.valentine1, "Valentine"));cards.add(new Cards(R.drawable.valentine2, "Valentine"));
+        cards.add(new Cards(R.drawable.anniversary, "Anniversary", 2.50F));cards.add(new Cards(R.drawable.birthday1, "Birthday", 3.00F));
+        cards.add(new Cards(R.drawable.birthday2, "Birthday", 3.20F));cards.add(new Cards(R.drawable.christmas1, "Christmas", 2.99F));
+        cards.add(new Cards(R.drawable.christmas2, "Christmas", 3.00F));cards.add(new Cards(R.drawable.retirement, "Anniversary", 1.99F));
+        cards.add(new Cards(R.drawable.getwell1, "Get well", 4.50F));cards.add(new Cards(R.drawable.getwell2, "Get well",3.99F));
+        cards.add(new Cards(R.drawable.valentine1, "Valentine", 2.00F));cards.add(new Cards(R.drawable.valentine2, "Valentine",5.00F));
 
         filteredCards = new ArrayList<>(cards);
 
