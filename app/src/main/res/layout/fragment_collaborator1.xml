@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fragment_collaborator"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
 
     <!-- Main content layout -->
     <LinearLayout
@@ -111,4 +113,5 @@
             android:layout_marginTop="24dp"/>
 
     </LinearLayout>
+
 </FrameLayout>
