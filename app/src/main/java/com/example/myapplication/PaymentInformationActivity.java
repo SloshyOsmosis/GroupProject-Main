@@ -101,7 +101,8 @@ public class PaymentInformationActivity extends AppCompatActivity {
     }
 
     private void Checkout(){
-        Intent intent = new Intent(PaymentInformationActivity.this, HomePageActivity.class);
+        Intent intent = new Intent(PaymentInformationActivity.this, ThankyouActivity.class);
+        Toast.makeText(PaymentInformationActivity.this, "Card successfully sent!", Toast.LENGTH_SHORT).show();
         startActivity(intent);
         finish();
     }

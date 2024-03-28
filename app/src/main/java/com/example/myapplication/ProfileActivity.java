@@ -1,6 +1,11 @@
 package com.example.myapplication;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresExtension;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -8,7 +13,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -17,8 +25,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.PopupWindow;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
@@ -29,6 +39,9 @@ public class ProfileActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     FrameLayout frameLayout;
+    FloatingActionButton changepfpbutton;
+    ImageView pfp;
+    ActivityResultLauncher resultLauncher;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,9 +51,13 @@ public class ProfileActivity extends AppCompatActivity {
         navigationView = findViewById(R.id.navigation_view);
 
         achievementBtn = findViewById(R.id.viewAchievementsBtn);
+        changepfpbutton = findViewById(R.id.changepfpbutton);
+
+        pfp = findViewById(R.id.changepfp);
 
         changeBtn = findViewById(R.id.changeInfoBtn);
         setUpAchievementModels();
+        registerResult();
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -70,6 +87,15 @@ public class ProfileActivity extends AppCompatActivity {
                 }
                 drawerLayout.closeDrawer(GravityCompat.START);
                 return true;
+            }
+        });
+
+        changepfpbutton.setOnClickListener(new View.OnClickListener() {
+            @RequiresExtension(extension = Build.VERSION_CODES.R, version = 2)
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MediaStore.ACTION_PICK_IMAGES);
+                resultLauncher.launch(intent);
             }
         });
 
@@ -111,5 +137,18 @@ public class ProfileActivity extends AppCompatActivity {
             achievementModels.add(new AchievementModel(achievementTitles[i],
                     achievementProgress[i]));
         }
+    }
+    private void registerResult(){
+        resultLauncher = registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(),
+                new ActivityResultCallback<ActivityResult>() {
+                    @Override
+                    public void onActivityResult(ActivityResult result) {
+                        assert result.getData() != null;
+                        Uri imageUri = result.getData().getData();
+                        pfp.setImageURI(imageUri);
+                    }
+                }
+        );
     }
 }
