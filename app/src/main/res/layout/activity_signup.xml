@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/white"
     tools:context=".SignupActivity">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -15,68 +15,78 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="225dp"
+            android:layout_marginTop="100dp"
             android:orientation="vertical"
             android:padding="20dp">
+
+            <TextView
+                android:id="@+id/txt_app_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="InkView"
+                android:textColor="@color/MainBlueColor"
+                android:textSize="30sp"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/txt_email"
                 android:layout_width="350dp"
                 android:layout_height="50dp"
-                android:layout_marginTop="30dp"
-                android:textColor="@color/black"
+                android:layout_marginTop="50dp"
                 android:background="@drawable/textboxforlogin"
                 android:drawableLeft="@drawable/baseline_mail_24"
                 android:drawablePadding="8dp"
                 android:hint="Email"
-                android:padding="8dp" />
+                android:padding="8dp"
+                android:textColor="@color/black" />
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txt_password"
                 android:layout_width="350dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black"
-                android:inputType="textPassword"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="20dp"
                 android:background="@drawable/textboxforlogin"
                 android:drawableLeft="@drawable/lock_alt_svgrepo_com"
                 android:drawablePadding="8dp"
                 android:hint="Password"
-                android:padding="8dp" />
+                android:inputType="textPassword"
+                android:padding="8dp"
+                android:textColor="@color/black" />
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txt_retypepassword"
                 android:layout_width="350dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black"
-                android:inputType="textPassword"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="20dp"
                 android:background="@drawable/textboxforlogin"
                 android:drawableLeft="@drawable/password_svgrepo_com"
                 android:drawablePadding="8dp"
-                android:hint=" RePassword"
-                android:padding="8dp" />
+                android:hint="Re-enter Password"
+                android:inputType="textPassword"
+                android:padding="8dp"
+                android:textColor="@color/black" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/signup_btn"
                 android:layout_width="350dp"
                 android:layout_height="50dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="20dp"
                 android:background="@drawable/button"
                 android:text="Sign up"
                 android:textColor="@color/white"
                 android:textSize="18dp" />
+
             <TextView
+                android:id="@+id/txt_alreadylogin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/txt_alreadylogin"
-                android:text="Already a user? Login"
                 android:layout_gravity="center"
+                android:layout_marginTop="20dp"
                 android:padding="8dp"
-                android:textSize="15sp"
-                android:layout_marginTop="8dp"
-                android:textColor="@color/black"/>
-
+                android:text="Already a user? Login"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
 
         </LinearLayout>
 
