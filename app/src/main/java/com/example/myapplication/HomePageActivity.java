@@ -12,6 +12,7 @@ import com.example.myapplication.SubscribedClickListener;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;

@@ -28,7 +28,7 @@ public class Cards {
     }
 
     public float getPrice(){
-        return getPrice();
+        return price;
     }
 
     public void setPrice(float price){

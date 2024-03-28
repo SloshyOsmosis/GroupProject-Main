@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageView;
 
@@ -12,7 +13,7 @@ import java.util.ArrayList;
 
 public class BasketActivity extends AppCompatActivity {
     private ActivityBasketBinding binding;
-    private ImageView cardView;
+    ImageView cardView;
     private double tax;
     private ArrayList<Cards> selectedCard = new ArrayList<>();
 
@@ -25,20 +26,15 @@ public class BasketActivity extends AppCompatActivity {
 
         int cardImage = getIntent().getIntExtra("imageResourceId", 0);
         cardView.setImageResource(cardImage);
-
         calculatorCart();
     }
 
     private void calculatorCart() {
         double percentTax = 0.02;
-        double delivery = 10;
+        double delivery = 0.99;
         double discountPercentage = 0.20;
 
-        double subtotal = 0.0;
-
-        for (Cards card : selectedCard) {
-            subtotal += card.getPrice();
-        }
+        double subtotal = 2.99;
 
         double taxPrice = subtotal * percentTax;
         double total = subtotal * (1+ percentTax) + delivery;
@@ -46,6 +42,7 @@ public class BasketActivity extends AppCompatActivity {
         double totalAfterDisocount = total - discountedPrice;
 
         //"%.2f" converts floats to a 2 decimal number, rather than a very long sequence of numbers.
+        binding.deliveryTxt.setText("£" + String.format("%.2f", delivery));
         binding.subtotalTxt.setText("£" + String.format("%.2f", subtotal));
         binding.discountpriceText.setText("£" + String.format("%.2f", discountedPrice));
         binding.totalTxt.setText("£"+String.format("%.2f", totalAfterDisocount));
