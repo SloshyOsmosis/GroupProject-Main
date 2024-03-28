@@ -3,10 +3,12 @@ package com.example.myapplication;
 public class Cards {
     int image;
     String category;
+    float price;
 
-    public Cards(int image, String category){
+    public Cards(int image, String category, float price){
         this.image = image;
         this.category = category;
+        this.price = price;
     }
 
     public int getImage(){
@@ -23,5 +25,13 @@ public class Cards {
 
     public void setCategory(String category){
         this.category = category;
+    }
+
+    public float getPrice(){
+        return getPrice();
+    }
+
+    public void setPrice(float price){
+        this.price = price;
     }
 }
