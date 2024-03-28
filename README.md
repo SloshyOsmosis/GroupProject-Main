@@ -1,4 +1,6 @@
 InkView
+
+
 InkView is a E-Card mobile application that allows users to create and send personalised electronic greeting cards from a variety of templates we have provided. Users will be able to add images, write messages and add a personalised signature to the cards, as well as invite other collaborators to join in! Users can send cards to recipients via email.
 
 
