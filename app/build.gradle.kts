@@ -1,6 +1,7 @@
 @Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
 plugins {
     alias(libs.plugins.androidApplication)
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -35,6 +36,9 @@ android {
 
 dependencies {
 
+    implementation("com.google.code.gson:gson:2.10.1")
+    implementation(platform("com.google.firebase:firebase-bom:32.8.0"))
+    implementation("com.google.firebase:firebase-analytics")
     implementation("com.github.gcacace:signature-pad:1.3.1")
     implementation(libs.appcompat)
     implementation(libs.material)
