@@ -39,6 +39,7 @@ public class PersonaliseCard extends AppCompatActivity {
         cardView = findViewById(R.id.imageView);
         uploadImage = findViewById(R.id.uploadedImage);
         uploadImageButton =findViewById(R.id.addImage);
+        inviteCollaboratorButton = findViewById(R.id.btnInvite);
 
         sidemenuButton = findViewById(R.id.menu_icon);
 
@@ -52,9 +53,8 @@ public class PersonaliseCard extends AppCompatActivity {
         inviteCollaboratorButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Replace or add your fragment here
                 getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.fragment_collaborator, new CollaboratorFragment1())
+                        .replace(R.id.pagelayout, new CollaboratorFragment1())
                         .addToBackStack(null)
                         .commit();
             }

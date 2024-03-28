@@ -2,8 +2,10 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/fragment_collaborator"
     android:layout_width="match_parent"
+    android:background="@color/white"
     android:layout_height="match_parent">
 
+    <include layout="@layout/toolbar"/>
 
     <!-- Main content layout -->
     <LinearLayout
@@ -13,15 +15,6 @@
         android:padding="16dp">
 
         <!-- Title "InkView" -->
-        <TextView
-            android:id="@+id/InkView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="InkView"
-            android:textSize="28sp"
-            android:textStyle="bold"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="24dp"/>
 
         <!-- Invite Collaborator Title -->
         <TextView
@@ -30,6 +23,7 @@
             android:layout_height="wrap_content"
             android:text="Invite Collaborator"
             android:textSize="18sp"
+            android:layout_marginTop="60dp"
             android:textStyle="bold"
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="24dp"/>
@@ -109,8 +103,8 @@
             android:id="@+id/buttonInviteCollaborator"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Invite Collaborator"
-            android:layout_marginTop="24dp"/>
+            android:layout_marginTop="24dp"
+            android:text="Invite Collaborator" />
 
     </LinearLayout>
 
