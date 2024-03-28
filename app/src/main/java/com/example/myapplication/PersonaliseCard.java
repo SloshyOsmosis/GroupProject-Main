@@ -26,7 +26,7 @@ import com.google.android.material.navigation.NavigationView;
 public class PersonaliseCard extends AppCompatActivity {
     ImageButton sidemenuButton, uploadImageButton;
     ImageView cardView, uploadImage;
-    Button inviteCollaboratorButton;
+    Button inviteCollaboratorButton, giftcardbutton;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     ActivityResultLauncher resultLauncher;
@@ -42,6 +42,7 @@ public class PersonaliseCard extends AppCompatActivity {
         inviteCollaboratorButton = findViewById(R.id.btnInvite);
 
         sidemenuButton = findViewById(R.id.menu_icon);
+        giftcardbutton = findViewById(R.id.giftcardButton);
 
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.navigation_view);
@@ -83,6 +84,12 @@ public class PersonaliseCard extends AppCompatActivity {
                 resultLauncher.launch(intent);
             }
         });
+
+        // to implement:
+
+        //giftcardbutton.setOnClickListener(new View.OnClickListener() {
+
+        //});
     }
     private void registerResult(){
         resultLauncher = registerForActivityResult(
