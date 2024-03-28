@@ -70,7 +70,7 @@
                 android:layout_width="160dp"
                 android:layout_gravity="center"
                 android:layout_height="250dp"
-                app:srcCompat="@drawable/missingimage" />
+                app:srcCompat="@drawable/basketcard" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -81,27 +81,16 @@
                 android:background="@drawable/grey_background"
                 android:orientation="horizontal">
 
-                <EditText
-                    android:id="@+id/editTextText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@color/white"
-                    android:ems="10"
-                    android:hint="Enter Recipient Email Address"
-                    android:inputType="text"
-                    android:paddingStart="8dp"
-                    android:textSize="14sp" />
-
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/button"
+                    android:id="@+id/Recipientbutton"
                     style="@android:style/Widget.Button"
                     android:layout_width="20dp"
                     android:layout_height="48dp"
                     android:fontFamily="@font/regular_font"
                     android:layout_weight="1"
+                    android:textSize="26dp"
                     android:background="@drawable/button"
-                    android:text="Send"
+                    android:text="Add Recipient"
                     android:textColor="@color/white" />
             </LinearLayout>
 

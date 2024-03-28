@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import com.example.myapplication.databinding.ActivityBasketBinding;
@@ -13,9 +15,7 @@ import java.util.ArrayList;
 
 public class BasketActivity extends AppCompatActivity {
     private ActivityBasketBinding binding;
-    ImageView cardView;
-    private double tax;
-    private ArrayList<Cards> selectedCard = new ArrayList<>();
+    private Button buyButton, recipientButton;
 
 
     @Override
@@ -24,9 +24,25 @@ public class BasketActivity extends AppCompatActivity {
         binding = ActivityBasketBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        int cardImage = getIntent().getIntExtra("imageResourceId", 0);
-        cardView.setImageResource(cardImage);
+        buyButton = findViewById(R.id.buyButton);
+        recipientButton = findViewById(R.id.Recipientbutton);
+
         calculatorCart();
+
+        recipientButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(BasketActivity.this, RecipientActivity.class);
+                startActivity(intent);
+            }
+        });
+        buyButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(BasketActivity.this, PaymentInformationActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void calculatorCart() {
