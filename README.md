@@ -41,7 +41,11 @@ Drag and drop APK to your emulator
 
 Contributors
 Daniel Herbert - Project Manager
+
 Aditya Solanki – UI/UX Designer
+
 Kian Murray – Frontend Developer
+
 Tom Hathaway – Hogg – Backend Developer
+
 Ehsan Riaz – Trend Analyst
