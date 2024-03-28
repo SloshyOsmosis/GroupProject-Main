@@ -209,33 +209,42 @@
                 </LinearLayout>
             </LinearLayout>
         </HorizontalScrollView>
-        <Button
-            android:id="@+id/btnDeliveryDate"
-            android:layout_width="wrap_content"
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="horizontal"
             android:layout_marginTop="8dp"
-            android:backgroundTint="@color/MainBlueColor"
-            android:text="Add delivery Date"
-            android:textColor="@color/white"
-            android:textSize="26sp"
-            android:fontFamily="@font/regular_font"
+            android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView2"
-            app:layout_constraintVertical_bias="0.91" />
-        <Button
-            android:id="@+id/btnInvite"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/MainBlueColor"
-            android:fontFamily="@font/regular_font"
-            android:text="Invite Collaborators"
-            android:textColor="@color/white"
-            android:textSize="26sp"
-            app:layout_constraintBottom_toTopOf="@+id/btnDeliveryDate"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView2" />
+            app:layout_constraintStart_toStartOf="parent">
+
+            <Button
+                android:id="@+id/btnInvite"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="@color/MainBlueColor"
+                android:fontFamily="@font/regular_font"
+                android:text="Invite Collaborators"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/btnDeliveryDate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:backgroundTint="@color/MainBlueColor"
+                android:text="Add Delivery Date"
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                android:fontFamily="@font/regular_font" />
+
+        </LinearLayout>
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.drawerlayout.widget.DrawerLayout>
