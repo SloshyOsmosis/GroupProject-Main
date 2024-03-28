@@ -58,9 +58,7 @@ public class PersonaliseCard extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 int id = item.getItemId();
-
                 //Switch statement will be used here to change activities.
-
                 drawerLayout.closeDrawer(GravityCompat.START);
                 return true;
             }

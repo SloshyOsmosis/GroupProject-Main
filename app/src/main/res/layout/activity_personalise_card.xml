@@ -115,7 +115,6 @@
                         android:layout_height="100dp"
                         android:layout_margin="10dp"
                         android:background="@drawable/textboxforcards">
-
                         <EditText
                             android:id="@+id/textbox2"
                             android:layout_width="match_parent"
@@ -123,15 +122,12 @@
                             android:hint="Message"
                             android:padding="5dp"
                             android:textColor="@color/black" />
-
                     </LinearLayout>
-
                     <LinearLayout
                         android:layout_width="320dp"
                         android:layout_height="100dp"
                         android:layout_margin="10dp"
                         android:background="@drawable/textboxforcards">
-
                         <com.github.gcacace.signaturepad.views.SignaturePad
                             android:id="@+id/textbox3"
                             android:layout_width="match_parent"
