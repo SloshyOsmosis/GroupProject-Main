@@ -26,7 +26,7 @@ import com.google.android.material.navigation.NavigationView;
 public class PersonaliseCard extends AppCompatActivity {
     ImageButton sidemenuButton, uploadImageButton;
     ImageView cardView, uploadImage;
-    Button inviteCollaboratorButton;
+    Button inviteCollaboratorButton, deliverydateBtn;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     ActivityResultLauncher resultLauncher;
@@ -40,6 +40,7 @@ public class PersonaliseCard extends AppCompatActivity {
         uploadImage = findViewById(R.id.uploadedImage);
         uploadImageButton =findViewById(R.id.addImage);
         inviteCollaboratorButton = findViewById(R.id.btnInvite);
+        deliverydateBtn = findViewById(R.id.btnInvite);
 
         sidemenuButton = findViewById(R.id.menu_icon);
 
@@ -50,6 +51,13 @@ public class PersonaliseCard extends AppCompatActivity {
         cardView.setImageResource(cardImage);
 
         registerResult();
+        deliverydateBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(PersonaliseCard.this, CalendarActivity.class);
+                startActivity(intent);
+            }
+        });
         inviteCollaboratorButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

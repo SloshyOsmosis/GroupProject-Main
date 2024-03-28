@@ -13,9 +13,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private Context context;
     private static final String DATABASE_NAME = "InkView.db";
     private static final int DATABASE_VERSION = 1;
+
     //User Table
-
-
     private static final String TABLE_USERS = "users";
     private static final String COLUMN_ID = "_id";
     private static final String COLUMN_EMAIL = "email";
