@@ -64,4 +64,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cursor.close();
         return exists;
     }
+
+    public boolean checkEmailExists(String email) {
+        SQLiteDatabase myDB = this.getReadableDatabase();
+        Cursor cursor = myDB.rawQuery("SELECT * FROM " + TABLE_USERS + " WHERE " + COLUMN_EMAIL + "=?", new String[]{email});
+        boolean exists = cursor.getCount() > 0;
+        cursor.close();
+        return exists;
+    }
+
 }

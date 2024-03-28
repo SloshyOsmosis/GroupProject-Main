@@ -7,10 +7,10 @@
     android:background="@color/white"
     android:gravity="center"
     tools:context=".LoginActivity">
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -34,32 +34,49 @@
                     android:textSize="30sp"
                     android:textStyle="bold" />
 
-
-                <EditText
-                    android:id="@+id/txt_email"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputLayoutEmail"
                     android:layout_width="350dp"
-                    android:layout_height="50dp"
-                    android:layout_marginTop="30dp"
-                    android:background="@drawable/textboxforlogin"
-                    android:drawableLeft="@drawable/baseline_mail_24"
-                    android:drawablePadding="8dp"
-                    android:hint="Email"
-                    android:padding="8dp"
-                    android:textColor="@color/black" />
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/txt_password"
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txt_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/baseline_mail_24"
+                        android:drawablePadding="8dp"
+                        android:hint="Email"
+                        android:inputType="textEmailAddress"
+                        android:textColor="@color/black" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputLayoutPassword"
                     android:layout_width="350dp"
-                    android:layout_height="50dp"
-                    android:layout_marginTop="20dp"
-                    android:background="@drawable/textboxforlogin"
-                    android:drawableLeft="@drawable/lock_alt_svgrepo_com"
-                    android:drawablePadding="8dp"
-                    android:hint="Password"
-                    android:inputType="textPassword"
-                    android:padding="8dp"
-                    android:textColor="@color/black" />
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp">
 
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txt_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/lock_alt_svgrepo_com"
+                        android:drawablePadding="8dp"
+                        android:hint="Password"
+                        android:inputType="textPassword"
+                        android:textColor="@color/black" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <CheckBox
+                    android:id="@+id/chk_remember_me"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Remember Me"
+                    android:textColor="@color/black" />
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/loginbtn"
@@ -86,9 +103,8 @@
 
         </LinearLayout>
 
-
     </ScrollView>
 
-
 </LinearLayout>
+
 
